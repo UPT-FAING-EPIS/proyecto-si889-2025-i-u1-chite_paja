@@ -15,7 +15,7 @@ backgroundColor: #ffffff
 - Brian Danilo Chite Quispe (2021070015)  
 - Piero Alexander Paja de la Cruz (2020067576)  
 - Mary Luz Chura Ticona (2019065163)
-
+--- 
 <!-- Problema -->
 ![bg](https://i.pinimg.com/1200x/43/e3/cc/43e3ccc91a962995f99b42ecd6131677.jpg)
 
@@ -89,7 +89,7 @@ Desarrollar una plataforma web que promueva la **colaboración académica y gest
 
 ## 🗂️ Modelo Entidad–Relación  
 ### *(Base de Datos del Sistema)*
-
+![center w:900](media/basededatos.png)  <!-- Centrado con ancho de 700px -->
 
 
 ---
