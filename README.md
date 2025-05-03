@@ -46,4 +46,5 @@ Desarrollar una plataforma de colaboración académica que permita la gestión i
 
 Roeadmap:
 
-![Roadmap](ruta/a/tu/imagen/roadmap.jpeg)
+![roadmap](https://github.com/user-attachments/assets/81fbb9c9-f6bb-49b0-afeb-4ce6e99c8a0d)
+
