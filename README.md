@@ -46,4 +46,4 @@ Desarrollar una plataforma de colaboración académica que permita la gestión i
 
 Roeadmap:
 
-![Uploading roadmap.jpeg…]()
+![Roadmap](ruta/a/tu/imagen/roadmap.jpeg)
