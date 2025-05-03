@@ -1,3 +1,49 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/IlvMPK2Y)
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=18703752)
-# proyecto-formatos-01
+## UNIVERSIDAD PRIVADA DE TACNA  
+### FACULTAD DE INGENIERÍA  
+### Escuela Profesional de Ingeniería de Sistemas  
+
+---
+
+## Plataforma de Colaboración Académica para Proyectos Innovadores en Ingeniería de Sistemas  
+
+**Curso:** Patrones de Software  
+**Docente:** Mag. Patrick José Cuadros Quiroga  
+
+---
+
+**Integrantes:**
+
+- Brian Danilo Chite Quispe   (2021070015)  
+- Piero Alexander Paja de la Cruz   (2020067576)  
+- Mary Luz Chura Ticona   (2019065163)  
+
+---
+
+**Tacna – Perú**  
+**2025**
+
+## 1.3 Descripción
+
+El propósito de este proyecto es diseñar e implementar una **Plataforma de Colaboración Académica** destinada a los estudiantes y docentes de la Escuela Profesional de Ingeniería de Sistemas de la **Universidad Privada de Tacna (UPT)**, con el objetivo de fomentar el desarrollo de proyectos innovadores, facilitar el trabajo en equipo, centralizar el seguimiento académico, y promover la interacción multidisciplinaria.
+
+Mediante esta plataforma, se busca **optimizar los procesos de gestión de proyectos académicos**, mejorar la visibilidad de los trabajos desarrollados, y fortalecer las competencias digitales y colaborativas de los futuros ingenieros.
+
+---
+
+## 1.4 Objetivos
+
+### 1.4.1 Objetivo General
+
+Desarrollar una plataforma de colaboración académica que permita la gestión integral de proyectos innovadores en la Escuela Profesional de Ingeniería de Sistemas.
+
+### 1.4.2 Objetivos Específicos
+
+1. Crear un sistema de registro y perfiles básicos  
+2. Desarrollar un módulo para subir y organizar proyectos  
+3. Implementar un chat grupal por proyecto  
+4. Permitir que docentes comenten y aprueben proyectos  
+5. Crear un listado público de proyectos destacados
+
+Roeadmap:
+
+![Uploading roadmap.jpeg…]()
