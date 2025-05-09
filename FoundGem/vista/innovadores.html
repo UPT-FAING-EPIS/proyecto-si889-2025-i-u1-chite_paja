@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovadores - FoundGem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #1e1e2f;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      background: #61dafb;
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-project {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+    }
+
+    .form-project input, 
+    .form-project textarea, 
+    .form-project select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    .form-project button {
+      background: #1e1e2f;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .form-project button:hover {
+      background: #2d2d3d;
+    }
+
+    .projects-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-left: 5px solid #61dafb;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      margin: 0 0 0.5rem 0;
+      color: #1e1e2f;
+    }
+
+    .project-card p {
+      margin: 0.5rem 0;
+      color: #555;
+    }
+
+    .project-card .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .alert {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 5px;
+    }
+
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .alert-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="{{ url_for('main.index') }}">Inicio</a>
+      <a href="{{ url_for('main.descubrir') }}">Descubrir</a>
+      <a href="{{ url_for('main.innovadores') }}">Mis Proyectos</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Comparte tu Proyecto Innovador</h1>
+    <p>Publica tu idea, atrae colaboradores y crea el futuro juntos.</p>
+  </section>
+
+  <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    {% if current_user.is_authenticated %}
+      <div class="section-title">Crear Nuevo Proyecto</div>
+      <form class="form-project" method="POST" action="{{ url_for('main.innovadores') }}">
+        <input type="text" name="titulo" placeholder="Nombre del Proyecto" required>
+        
+        <input type="text" name="url_imagen" placeholder="URL de la imagen (ej: https://ejemplo.com/imagen.jpg)" required>
+        
+        <textarea name="descripcion" placeholder="Describe tu proyecto en detalle..." required></textarea>
+        
+        <input type="text" name="universidad" placeholder="Universidad" value="{{ current_user.universidad }}" required>
+        
+        <input type="text" name="departamento" placeholder="Departamento/Facultad" value="{{ current_user.facultad }}" required>
+        
+        <select name="categoria" required>
+          <option value="">Selecciona una categoría</option>
+          <option value="Tecnología">Tecnología</option>
+          <option value="Educación">Educación</option>
+          <option value="Salud">Salud</option>
+          <option value="Medio Ambiente">Medio Ambiente</option>
+          <option value="Otro">Otro</option>
+        </select>
+        
+        <input type="number" name="objetivo_financiamiento" placeholder="Objetivo de financiamiento (ej: 1000.00)" step="0.01" min="0" required>
+        
+        <button type="submit">Publicar Proyecto</button>
+      </form>
+
+      <div class="section-title">Mis Proyectos</div>
+      
+      {% if proyectos %}
+        <div class="projects-list">
+          {% for proyecto in proyectos %}
+            <div class="project-card">
+              {% if proyecto.url_imagen %}
+                <img src="{{ proyecto.url_imagen }}" alt="{{ proyecto.titulo }}" style="width:100%; height:auto; margin-bottom:1rem; border-radius:5px;">
+              {% endif %}
+              <h3>{{ proyecto.titulo }}</h3>
+              <p><strong>Categoría:</strong> {{ proyecto.categoria }}</p>
+              <p><strong>Descripción:</strong> {{ proyecto.descripcion }}</p>
+              <p><strong>Universidad:</strong> {{ proyecto.universidad }}</p>
+              <p><strong>Departamento:</strong> {{ proyecto.departamento }}</p>
+              <div class="meta">
+                <p><strong>Financiamiento:</strong> ${{ proyecto.financiamiento_actual }} de ${{ proyecto.objetivo_financiamiento }} ({{ proyecto.progreso_financiamiento|round(1) }}%)</p>
+                <p>Fecha límite: {{ proyecto.fecha_limite.strftime('%d/%m/%Y') }}</p>
+                <p>Creado el: {{ proyecto.fecha_creacion.strftime('%d/%m/%Y') }}</p>
+              </div>
+              <a href="{{ url_for('main.proyecto_detalle', proyecto_id=proyecto.id) }}" class="button-ver-mas">Ver más</a>
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="empty-state">
+          <p>Aún no has creado ningún proyecto. ¡Comienza ahora!</p>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="empty-state">
+        <p>Debes <a href="{{ url_for('main.login') }}">iniciar sesión</a> para crear y ver tus proyectos.</p>
+      </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem - Comunidad de innovación abierta.
+  </footer>
+
+</body>
+</html>

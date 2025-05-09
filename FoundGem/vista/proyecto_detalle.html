@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Proyecto - {{ proyecto.titulo }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f5f6fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: #1e1e2f;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #61dafb;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      max-width: 1200px;
+    }
+
+    .left-column {
+      flex: 3;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .right-column {
+      flex: 1;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      margin-left: 2rem;
+    }
+
+    .proyecto-detalle h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .proyecto-detalle img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .proyecto-detalle p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid #eee;
+    }
+
+    .reward-box {
+      border: 2px solid #007bff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .reward-box h3 {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+
+    .reward-box ul {
+      padding-left: 1.5rem;
+      list-style: none;
+    }
+
+    .reward-box ul li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .reward-box .price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .back-button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background: #1e1e2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .back-button:hover {
+      background: #2d2d3d;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="{{ url_for('main.index') }}">Inicio</a>
+      <a href="{{ url_for('main.descubrir') }}">Descubrir</a>
+      <a href="{{ url_for('main.innovadores') }}">Mis Proyectos</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Información del Proyecto -->
+    <div class="left-column proyecto-detalle">
+      <h1>{{ proyecto.titulo }}</h1>
+      
+      {% if proyecto.url_imagen %}
+        <img src="{{ proyecto.url_imagen }}" alt="{{ proyecto.titulo }}">
+      {% endif %}
+
+      <p><strong>Categoría:</strong> {{ proyecto.categoria }}</p>
+      <p><strong>Descripción:</strong> {{ proyecto.descripcion }}</p>
+      <p><strong>Universidad:</strong> {{ proyecto.universidad }}</p>
+      <p><strong>Departamento:</strong> {{ proyecto.departamento }}</p>
+
+      <div class="meta">
+        <p><strong>Financiamiento:</strong> ${{ proyecto.financiamiento_actual }} de ${{ proyecto.objetivo_financiamiento }} ({{ proyecto.progreso_financiamiento|round(1) }}%)</p>
+        <p>Fecha límite: {{ proyecto.fecha_limite.strftime('%d/%m/%Y') }}</p>
+        <p>Creado el: {{ proyecto.fecha_creacion.strftime('%d/%m/%Y') }}</p>
+      </div>
+
+      <a href="{{ url_for('main.innovadores') }}" class="back-button">Volver a Mis Proyectos</a>
+    </div>
+
+    <!-- Recompensas -->
+    <div class="right-column">
+      <div class="reward-box">
+        <h3>Recompensas</h3>
+        <ul>
+          <li><span class="price">S/ 30</span> - Acceso a seminarios en línea exclusivos sobre innovación tecnológica en educación.</li>
+          <li><span class="price">S/ 50</span> - Libro digital exclusivo sobre avances tecnológicos en la educación superior.</li>
+          <li><span class="price">S/ 100</span> - Certificado de participación en el proyecto, con reconocimiento oficial de la Universidad Privada de Tacna.</li>
+          <li><span class="price">S/ 150</span> - Invitación a una conferencia exclusiva organizada por la Universidad Privada de Tacna sobre el futuro de la educación tecnológica.</li>
+          <li><span class="price">S/ 200</span> - Beca parcial para un curso especializado en innovación tecnológica (válido para estudiantes de la Universidad Privada de Tacna).</li>
+        </ul>
+        <button class="support-btn">¡Unirse!</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

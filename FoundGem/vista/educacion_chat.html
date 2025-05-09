@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educación - FoundGem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar .left a {
+      color: #ccc;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .navbar .left a:hover {
+      color: #61dafb;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                  url('https://images.unsplash.com/photo-1588072432836-e10032774350') no-repeat center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: #1e1e2f;
+      border-left: 5px solid #61dafb;
+      padding-left: 0.7rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+    }
+
+    .card-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #1e1e2f;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      margin-top: 3rem;
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div class="left">
+      <a href="{{ url_for('main.tecnologia') }}">Tecnología</a>
+      <a href="{{ url_for('main.educacion') }}">Educación</a>
+      <a href="{{ url_for('main.juegos') }}">Juegos</a>
+      <a href="{{ url_for('main.turismo') }}">Turismo</a>
+      <a href="{{ url_for('main.descubrir') }}">Descubrir</a>
+      <a href="{{ url_for('main.index') }}">Inicio</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Transformando el Futuro de la Educación</h1>
+    <p>Conoce las innovaciones, metodologías y herramientas que están cambiando la forma de enseñar y aprender.</p>
+  </section>
+
+  <div class="container">
+    <div class="section-title">Novedades en Educación</div>
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://www.ibecmagazine.com/Portals/7/EasyDNNnews/3268/img-Accesibilidad1.jpg" alt="Educación 1">
+        <div class="card-content">
+          <h3>Educación digital accesible</h3>
+          <p>Plataformas online permiten a estudiantes de todo el mundo acceder a educación de calidad.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTolo1oyNOCRhiHTu3I4n_-Ia6hTfq1lFvrXg&s" alt="Educación 2">
+        <div class="card-content">
+          <h3>Aulas virtuales interactivas</h3>
+          <p>La tecnología permite entornos de aprendizaje más dinámicos y colaborativos desde casa.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.obicex.es/sites/obicex/files/styles/blog_desktop/public/images/blog/gamificacion-educacion.jpg?itok=LnnTpLqG" alt="Educación 3">
+        <div class="card-content">
+          <h3>Gamificación educativa</h3>
+          <p>El uso de juegos y recompensas mejora la motivación y participación del alumnado.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://megaprofe.es/wp-content/uploads/2024/06/DALL%C2%B7E-2024-06-03-19.03.29-A-wide-image-illustrating-the-impact-of-AI-on-learning-teaching-and-education.-The-scene-should-be-a-modern-classroom-setting-with-students-of-vario.webp" alt="Educación 4">
+        <div class="card-content">
+          <h3>Inteligencia artificial en el aula</h3>
+          <p>Los algoritmos adaptan el contenido según el ritmo de cada estudiante, mejorando resultados.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="section-title">Chat de Educación</div>
+    <div id="chat-box" style="background:#fff; border:1px solid #ccc; padding:1rem; height:300px; overflow-y:scroll; margin-bottom:1rem;">
+      <!-- Mensajes aparecerán aquí -->
+    </div>
+    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." style="width:100%; padding:0.8rem; border-radius:5px; border:1px solid #ccc;">
+    <button onclick="enviarMensaje()" style="margin-top:0.5rem; padding:0.6rem 1.2rem; background:#61dafb; color:#fff; border:none; border-radius:5px;">Enviar</button>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chat-box');
+    const chatInput = document.getElementById('chat-input');
+
+    function enviarMensaje() {
+      const mensaje = chatInput.value.trim();
+      if (mensaje !== '') {
+        const p = document.createElement('p');
+        p.textContent = "Usuario: " + mensaje;
+        chatBox.appendChild(p);
+        chatInput.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }
+    }
+
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') enviarMensaje();
+    });
+  </script>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados. | Educación e inspiración para el mañana.
+  </footer>
+
+</body>
+</html>

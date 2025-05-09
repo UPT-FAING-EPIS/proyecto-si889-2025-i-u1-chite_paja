@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recomendación - Turismo y Juegos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f7f9;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .recommendation-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1e1e2f;
+    }
+
+    .recommendation-content p {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .motivational-btn {
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .motivational-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Estilo para las imágenes motivacionales */
+    .motivation-images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+
+    .motivation-images img {
+      width: 30%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .motivation-images img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    /* Caja de consejos */
+    .tips-box {
+      background-color: #007bff;
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+    }
+
+    .tips-box h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .tips-box ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+
+    .tips-box ul li {
+      margin: 1rem 0;
+    }
+
+    .tips-box ul li::before {
+      content: "✔️";
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="#">Inicio</a>
+      <a href="#">Proyectos</a>
+      <a href="#">Crear Proyecto</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="recommendation-content">
+      <h1>Turismo y Juegos: El Futuro de la Exploración</h1>
+      <p>
+        Este proyecto busca fusionar la aventura del turismo con el entretenimiento de los juegos interactivos. Imagina explorar nuevos destinos a través de simulaciones de realidad aumentada y juegos de geolocalización. Los viajeros podrán participar en búsquedas del tesoro y desafíos interactivos mientras exploran diferentes partes del mundo.
+      </p>
+      <p>
+        Con la ayuda de la tecnología de juegos, podemos transformar cómo los turistas descubren nuevas ciudades y lugares, haciendo de cada experiencia de viaje algo único e inolvidable. Además, el proyecto fomentará el turismo responsable y sostenible al incorporar elementos de aprendizaje sobre las culturas locales.
+      </p>
+      <p>
+        Sé parte de esta revolución en el turismo y los juegos. Apóyanos para ofrecer una experiencia de viaje completamente nueva que combine diversión, aventura y aprendizaje.
+      </p>
+      
+      <!-- Imágenes Motivacionales -->
+      <div class="motivation-images">
+        <img src="https://www.entornoturistico.com/wp-content/uploads/2021/08/Gamificacio%CC%81n-en-Turismo.jpg" alt="Viaje de aventura" />
+        <img src="https://revistabyte.es/wp-content/uploads/2018/08/La-evoluci%C3%B3n-de-los-juegos-gracias-a-las-nuevas-tecnolog%C3%ADas.jpg" alt="Explorando un nuevo destino" />
+        <img src="https://unifranz.edu.bo/wp-content/uploads/2020/03/ingenieria-6.jpg" alt="Explorando con tecnología" />
+      </div>
+
+    <!-- Consejos Motivacionales -->
+    <div class="tips-box">
+      <h2>Consejos para los Contribuyentes</h2>
+      <ul>
+        <li>Transformemos la forma en que descubrimos el mundo, ¡con tecnología y juegos!</li>
+        <li>Contribuye a crear una experiencia de viaje inmersiva y educativa.</li>
+        <li>Explora nuevos destinos mientras juegas y aprendes al mismo tiempo.</li>
+        <li>Fomenta el turismo responsable y sostenible a través de la gamificación.</li>
+        <li>Haz que cada viaje sea una nueva aventura interactiva.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>

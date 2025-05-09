@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalles del Proyecto - Innovación Educativa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+        body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f7f9;
+      color: #333;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      max-width: 1200px;
+    }
+
+    .left-column {
+      flex: 3;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .right-column {
+      flex: 1;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-left: 2rem;
+    }
+
+    .project-info img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .project-info h1 {
+      font-size: 2.5rem;
+      color: #1e1e2f;
+      margin-bottom: 1rem;
+    }
+
+    .project-info p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .reward-box {
+      border: 2px solid #007bff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: #f9f9f9;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
+    }
+
+    .reward-box h3 {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+
+    .reward-box ul {
+      padding-left: 1.5rem;
+      list-style: none;
+    }
+
+    .reward-box ul li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .reward-box .price {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .support-btn {
+      background-color: #61dafb;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .support-btn:hover {
+      background-color: #007bff;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="#">Inicio</a>
+      <a href="#">Proyectos</a>
+      <a href="#">Crear Proyecto</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Información del Proyecto -->
+    <div class="left-column">
+      <div class="project-info">
+        <img src="https://d5tnfl9agh5vb.cloudfront.net/uploads/2024/03/proyectos-innovadores.jpg" alt="Proyecto Educativo">
+        <h1>Innovación Académica - Proyecto Educativo</h1>
+        <p>
+          Este proyecto busca revolucionar la educación en la Facultad de Sistemas de nuestra universidad, con un enfoque creativo que incorpora nuevas tecnologías de aprendizaje. El objetivo es crear una plataforma interactiva que no solo mejorará la experiencia de los estudiantes, sino que también facilitará la enseñanza, permitiendo una formación más dinámica y accesible.
+        </p>
+        <p>
+          <strong>Ubicación:</strong> Perú<br>
+          <strong>Categoría:</strong> Educación<br>
+          <strong>Fecha de lanzamiento:</strong> 2025
+        </p>
+        <p>
+          Si estás interesado en apoyar este proyecto, puedes ver las diferentes recompensas disponibles a continuación.
+        </p>
+      </div>
+    </div>
+
+    <!-- Recompensas -->
+    <div class="right-column">
+      <div class="reward-box">
+        <h3>Recompensas</h3>
+        <ul>
+          <li><span class="price">S/ 30</span> - Acceso a seminarios en línea exclusivos sobre innovación tecnológica en educación.</li>
+<li><span class="price">S/ 50</span> - un libro digital exclusivo sobre avances tecnológicos en la educación superior.</li>
+<li><span class="price">S/ 100</span> - certificado de participación en el proyecto, con reconocimiento oficial de la Universidad Privada de Tacna.</li>
+<li><span class="price">S/ 150</span> - invitar a una conferencia exclusiva organizada por la Universidad Privada de Tacna sobre el futuro de la educación tecnológica.</li>
+<li><span class="price">S/ 200</span> - beca parcial para un curso especializado en innovación tecnológica (válido para estudiantes de la Universidad Privada de Tacna.</li>
+        </ul>
+        <button class="support-btn">¡Unirse!</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>

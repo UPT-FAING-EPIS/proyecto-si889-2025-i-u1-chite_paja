@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat - Mensajes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f7f9;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .chat-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .chat-header h2 {
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .messages-container {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    .message {
+      padding: 1rem;
+      border-radius: 8px;
+      background: #f1f1f1;
+      max-width: 80%;
+    }
+
+    .message.sent {
+      background-color: #d1e7dd;
+      align-self: flex-end;
+    }
+
+    .message.received {
+      background-color: #f8d7da;
+      align-self: flex-start;
+    }
+
+    .chat-footer {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .chat-footer input {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .send-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .send-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .message-info {
+      font-size: 0.8rem;
+      color: #999;
+    }
+
+    .message-text {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+  <div class="logo">FoundGem</div>
+  <div>
+    <a href="{{ url_for('main.index') }}">Inicio</a> <!-- Usamos url_for para la página de inicio -->
+    <a href="{{ url_for('main.notificaciones') }}">Notificaciones</a> <!-- Sólo un enlace a Notificaciones -->
+  </div>
+</nav>
+
+  <div class="container">
+    <div class="chat-header">
+      <img src="https://img.freepik.com/vector-premium/icono-perfil-personas_24877-40756.jpg" alt="User Avatar">
+      <h2>Rosario BP</h2>
+    </div>
+
+    <!-- Mensajes -->
+    <div class="messages-container" id="messagesContainer"></div>
+    <!-- Input y botón para enviar mensaje -->
+    <div class="chat-footer">
+      <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+      <button class="send-btn" id="sendButton">Enviar</button>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    // Función para convertir la fecha en tiempo relativo
+    function timeAgo(date) {
+      const now = new Date();
+      const seconds = Math.floor((now - date) / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+
+      if (seconds < 60) {
+        return "Hace " + seconds + " segundo" + (seconds > 1 ? "s" : "");
+      } else if (minutes < 60) {
+        return "Hace " + minutes + " minuto" + (minutes > 1 ? "s" : "");
+      } else if (hours < 24) {
+        return "Hace " + hours + " hora" + (hours > 1 ? "s" : "");
+      } else if (days < 30) {
+        return "Hace " + days + " día" + (days > 1 ? "s" : "");
+      } else {
+        return "Hace más de un mes";
+      }
+    }
+
+    // Función para guardar los mensajes en el localStorage
+    function saveMessages(messages) {
+      localStorage.setItem('chatMessages', JSON.stringify(messages));
+    }
+
+    // Función para cargar los mensajes desde el localStorage
+    function loadMessages() {
+      const savedMessages = localStorage.getItem('chatMessages');
+      return savedMessages ? JSON.parse(savedMessages) : [];
+    }
+
+    // Función para renderizar los mensajes en la interfaz
+    function renderMessages() {
+      const messagesContainer = document.getElementById('messagesContainer');
+      const messages = loadMessages();
+      messagesContainer.innerHTML = ''; // Limpiar contenedor
+      messages.forEach(message => {
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message', message.type);
+
+        const messageText = document.createElement('div');
+        messageText.classList.add('message-text');
+        messageText.textContent = message.text;
+
+        const messageTime = document.createElement('div');
+        messageTime.classList.add('message-info');
+        messageTime.textContent = timeAgo(new Date(message.timestamp));
+
+        newMessage.appendChild(messageText);
+        newMessage.appendChild(messageTime);
+
+        messagesContainer.appendChild(newMessage);
+      });
+
+      // Desplazar el contenedor de mensajes hacia abajo
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // Función para enviar mensaje
+    function sendMessage() {
+      const input = document.getElementById('messageInput');
+      const messageText = input.value.trim();
+
+      // Si el mensaje no está vacío
+      if (messageText) {
+        const messages = loadMessages();
+        const newMessage = {
+          text: messageText,
+          type: 'sent',
+          timestamp: new Date().toISOString()
+        };
+
+        messages.push(newMessage);
+        saveMessages(messages);
+        renderMessages();
+
+        // Limpiar el campo de entrada
+        input.value = '';
+      }
+    }
+
+    // Asignar evento al botón de enviar
+    document.getElementById('sendButton').addEventListener('click', sendMessage);
+
+    // Permitir enviar el mensaje presionando "Enter"
+    document.getElementById('messageInput').addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        sendMessage();
+      }
+    });
+
+    // Cargar y mostrar los mensajes al cargar la página
+    window.onload = renderMessages;
+
+    // Actualizar el tiempo relativo cada minuto
+    setInterval(() => {
+      renderMessages(); // Re-renderizar para actualizar los tiempos
+    }, 60000); // Actualizar cada minuto
+  </script>
+
+</body>
+
+</html>

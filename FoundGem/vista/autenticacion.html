@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoundGem - {{ 'Iniciar Sesión' if request.path == '/login' else 'Registro' }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="{{ url_for('main.index1') }}" class="logo">
+                <i class="fas fa-gem"></i>
+                <span>FoundGem</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h1>{{ 'Iniciar Sesión' if request.path == '/login' else 'Registro' }}</h1>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('main.login') if request.path == '/login' else url_for('main.registro') }}">
+                {{ form.hidden_tag() }}
+                
+                <!-- Campo de usuario (común a ambos formularios) -->
+                <div class="form-group">
+                    {{ form.username.label }}
+                    {{ form.username(class="form-control", placeholder="Tu nombre de usuario") }}
+                    {% for error in form.username.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                
+                <!-- Campos específicos para registro -->
+                {% if request.path == '/registro' %}
+                    <div class="form-group">
+                        {{ form.email.label }}
+                        {{ form.email(class="form-control", placeholder="tu@email.com") }}
+                        {% for error in form.email.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.universidad.label }}
+                        {{ form.universidad(class="form-control", placeholder="Nombre de tu universidad") }}
+                        {% for error in form.universidad.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.facultad.label }}
+                        {{ form.facultad(class="form-control", placeholder="Nombre de tu facultad") }}
+                        {% for error in form.facultad.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="form-group">
+                        {{ form.rol.label }}
+                        {{ form.rol(class="form-control") }}
+                        {% for error in form.rol.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                
+                <!-- Campo de contraseña (común a ambos formularios) -->
+                <div class="form-group">
+                    {{ form.password.label }}
+                    {{ form.password(class="form-control", placeholder="••••••••") }}
+                    {% for error in form.password.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                
+                <!-- Confirmación de contraseña solo para registro -->
+                {% if request.path == '/registro' %}
+                    <div class="form-group">
+                        {{ form.confirm_password.label }}
+                        {{ form.confirm_password(class="form-control", placeholder="••••••••") }}
+                        {% for error in form.confirm_password.errors %}
+                            <span class="error-message">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    {{ 'Iniciar Sesión' if request.path == '/login' else 'Registrarse' }}
+                </button>
+            </form>
+            
+            <div class="auth-footer">
+                {% if request.path == '/login' %}
+                    <p>¿No tienes cuenta? <a href="{{ url_for('main.registro') }}">Regístrate aquí</a></p>
+                {% else %}
+                    <p>¿Ya tienes cuenta? <a href="{{ url_for('main.login') }}">Inicia sesión</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

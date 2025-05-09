@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mensajes - Estilo Messenger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f7f9;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      margin-bottom: 2rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .messages-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .message-box {
+      background-color: #fff;
+      padding: 1rem;
+      width: 200px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .message-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .message-box img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .message-box .message-info {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #333;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .message-box .message-time {
+      font-size: 0.85rem;
+      color: #007bff;
+    }
+
+    .message-box .message-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="{{ url_for('main.index') }}">Inicio</a> <!-- Usamos url_for para la página de inicio -->
+      <a href="{{ url_for('main.notificaciones') }}">Notificaciones</a> <!-- Sólo un enlace a Notificaciones -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="section-title">
+      <h2>Mensajes Recientes</h2>
+    </div>
+
+    <!-- Contenedor de Mensajes -->
+    <div class="messages-container">
+      <div class="message-box" onclick="openChat('1')">
+        <img src="https://via.placeholder.com/200" alt="Mensaje 1">
+        <a href="{{ url_for('main.usuario1') }}"> <!-- Enlace a la ruta de Flask -->
+          <div class="message-info">
+            <div class="message-text">¡Hola! ¿Cómo estás? Quería saber más sobre tu proyecto de innovación.</div>
+            <div class="message-time">Hace 1 minutos</div>
+          </div>
+        </a>
+      </div>
+
+      <div class="message-box" onclick="openChat('2')">
+        <img src="https://via.placeholder.com/200" alt="Mensaje 2">
+        <div class="message-info">
+          <div class="message-text">¡Hola! Estoy interesado en saber más sobre tu proyecto educativo.</div>
+          <div class="message-time">Hace 7 minutos</div>
+        </div>
+      </div>
+
+      <div class="message-box" onclick="openChat('3')">
+        <img src="https://via.placeholder.com/200" alt="Mensaje 3">
+        <div class="message-info">
+          <div class="message-text">¿Cómo puedo participar en el proyecto de innovación educativa?</div>
+          <div class="message-time">Hace 1 hora</div>
+        </div>
+      </div>
+
+      <div class="message-box" onclick="openChat('4')">
+        <img src="https://via.placeholder.com/200" alt="Mensaje 4">
+        <div class="message-info">
+          <div class="message-text">¿Me puedes enviar el enlace al proyecto?</div>
+          <div class="message-time">Hace 1 minuto</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados.
+  </footer>
+
+  <script>
+    function openChat(id) {
+      window.location.href = 'chat/' + id;  // Redirigir a la página de chat con el id del mensaje
+    }
+  </script>
+
+</body>
+
+</html>

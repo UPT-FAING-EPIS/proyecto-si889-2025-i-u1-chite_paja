@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recomendación - Educación y Tecnología</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: #f4f7f9;
+    }
+
+    .navbar {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #61dafb;
+    }
+
+    .navbar a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .recommendation-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #1e1e2f;
+    }
+
+    .recommendation-content p {
+      font-size: 1.2rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .motivational-btn {
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .motivational-btn:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background: #1e1e2f;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Estilo para las imágenes motivacionales */
+    .motivation-images {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2rem;
+    }
+
+    .motivation-images img {
+      width: 30%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .motivation-images img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    /* Caja de consejos */
+    .tips-box {
+      background-color: #007bff;
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-top: 3rem;
+    }
+
+    .tips-box h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .tips-box ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+
+    .tips-box ul li {
+      margin: 1rem 0;
+    }
+
+    .tips-box ul li::before {
+      content: "✔️";
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">FoundGem</div>
+    <div>
+      <a href="#">Inicio</a>
+      <a href="#">Proyectos</a>
+      <a href="#">Crear Proyecto</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="recommendation-content">
+      <h1>Educación y Tecnología: El Futuro del Aprendizaje</h1>
+      <p>
+        La tecnología está revolucionando todos los aspectos de nuestra vida, y la educación no es la excepción. Con el uso de herramientas como la inteligencia artificial, la realidad aumentada y las plataformas digitales, el aprendizaje se ha vuelto más interactivo, accesible y personalizado que nunca.
+      </p>
+      <p>
+        Este proyecto busca llevar la educación digital al siguiente nivel, proporcionando a los estudiantes acceso a contenido interactivo, simulaciones de realidad aumentada, y sistemas de aprendizaje adaptativo que permiten personalizar el proceso educativo a las necesidades de cada estudiante.
+      </p>
+      <p>
+        Al apoyar este proyecto, no solo estarás ayudando a crear una plataforma educativa más accesible y dinámica, sino que también estarás invirtiendo en el futuro de la educación, asegurando que cada estudiante tenga las herramientas necesarias para alcanzar su máximo potencial en un mundo digital.
+      </p>
+      <p>
+        ¡Juntos podemos revolucionar el futuro de la educación! Con tu contribución, este proyecto será una realidad que impactará a generaciones de estudiantes en todo el mundo.
+      </p>
+
+      <!-- Imágenes Motivacionales -->
+      <div class="motivation-images">
+        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg" alt="Estudiante con tecnología" />
+        <img src="https://images.pexels.com/photos/1181352/pexels-photo-1181352.jpeg" alt="Educación con IA" />
+        <img src="https://universidadeuropea.com/resources/media/images/tecnologia_educacion_1200x630.original.jpg" alt="Tecnología en educación" />
+      </div>
+
+    <!-- Consejos Motivacionales -->
+    <div class="tips-box">
+      <h2>Consejos para los Contribuyentes</h2>
+      <ul>
+        <li>Invierte en el futuro de los estudiantes, ayudándoles a acceder a herramientas educativas avanzadas.</li>
+        <li>Haz posible que el aprendizaje sea accesible en cualquier lugar y para todos los estudiantes.</li>
+        <li>Contribuye a una revolución digital en la educación que cambiará la vida de millones.</li>
+        <li>Apoya la creación de una educación personalizada, adaptada a las necesidades de cada alumno.</li>
+        <li>Haz de la **tecnología educativa** un puente para que todos los estudiantes tengan las mismas oportunidades de aprender.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 FoundGem. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
