@@ -48,3 +48,11 @@ Roeadmap:
 
 ![roadmap](https://github.com/user-attachments/assets/81fbb9c9-f6bb-49b0-afeb-4ce6e99c8a0d)
 
+## 1.5 Pasos Para la Ejecucion del Proyecto
+
+### - Descargar las dependencias con el siguiente comando 
+pip install -r requirements.txt
+### - Ejecutar la carpeta de la Base de Dastos en HeidiSQL
+### - Finalmente ejecutar el siguiente comando desde la raiz del proyecto
+flask run  --debug
+
